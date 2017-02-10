@@ -5,3 +5,7 @@
 *.tmp
 .npm-debug.log*
 *.npm-debug.log
+dist
+public/dist
+node_modules
+*node_modules
