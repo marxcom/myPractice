@@ -213,7 +213,12 @@ console.log(f());
 console.log(f());
 console.log(f());
 ---------------------------------------------------------------------
-*/
 const arr = [1,2,3,4,5,6,7,8];
 
 console.log(arr.fill("a",-6,-2));
+---------------------------------------------------------------------
+*/
+const arr = [{name:"James"}, {name:"Paul"}, {name:"Trevor"}, {name:"Amanda"}];
+//console.log(arr.sort());
+console.log(arr.sort((b,a) => a.name > b.name));
+//console.log(arr.sort((a,b) => a.name[1] > b.name[1]));
