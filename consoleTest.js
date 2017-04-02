@@ -1,3 +1,4 @@
+"strict mode";
 /*
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -163,4 +164,56 @@ function f() {
 const y = 4;
 f();
 -----------------------------------------------------------
+
+console.log('before block');
+{
+  console.log('inside block');
+  const x = 3;
+  console.log(x);
+}
+//console.log(`outside block; x=${x}`); : Crashed as expect!
+--------------------------------------------------------------
+{
+// block 1
+  const x = 'blue';
+  console.log(x); // logs "blue"
+}
+console.log(typeof x); // logs "undefined"; x out of scope
+---------------------------------------------------------------
+
+let f;
+{
+  let o = { note: 'Safe' };
+  f = function() {
+    return o;
+  };
+}
+
+let oRef = f();
+
+oRef.note = "Not so safe after all!";
+
+console.log(oRef.note);
+-------------------------------------------------------------------
+const message = function() {
+  const secret = "I'm a secret!";
+  return `The secret is ${secret.length} characters long.`;
+};
+console.log(message());
+---------------------------------------------------------------------
+const f = (function() {
+  let count = 0;
+  return function() {
+    return `I have been called ${++count} time(s).`;
+  };
+})();
+console.log(f());
+console.log(f());
+console.log(f());
+console.log(f());
+console.log(f());
+---------------------------------------------------------------------
 */
+const arr = [1,2,3,4,5,6,7,8];
+
+console.log(arr.fill("a",-6,-2));
