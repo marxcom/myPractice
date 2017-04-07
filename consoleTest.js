@@ -217,8 +217,65 @@ const arr = [1,2,3,4,5,6,7,8];
 
 console.log(arr.fill("a",-6,-2));
 ---------------------------------------------------------------------
-*/
 const arr = [{name:"James"}, {name:"Paul"}, {name:"Trevor"}, {name:"Amanda"}];
 //console.log(arr.sort());
 console.log(arr.sort((b,a) => a.name > b.name));
 //console.log(arr.sort((a,b) => a.name[1] > b.name[1]));
+---------------------------------------------------------------------
+const o = { name: "Jerry" };
+const arr = [1, 5, "a", o, true, 5, [1, 2], "9"];
+console.log(arr.indexOf(5,3));
+---------------------------------------------------------------------
+const arr = [{ id: 5, name: "Judith" }, { id: 7, name: "Francis" }];
+console.log(arr.findIndex(o => o.id === "Francis"));
+---------------------------------------------------------------------
+const arr = [{ id: 5, name: "Judith" }, { id: 7, name: "Francis" }];
+//console.log(arr.find(o => o.id === 5));
+console.log(arr.find(o => o.id === 2));
+---------------------------------------------------------------------
+const arr = [5, 7, 11, 15, 16, 17, 18, 20];
+console.log(arr.every(x => x%2 === 0));
+//console.log(arr.every(x => Number.isInteger(Math.sqrt(x))));
+---------------------------------------------------------------------
+const cart = [{name: "Computer", price: 90.00}, {name: "Phone", price: 50.00}];
+//const names = cart.map(x => x.name);
+const names = cart.map(function (x){
+  return x.name;
+});
+const prices = cart.map(x => x.price);
+const discountPrices = prices.map(x => x * 0.8);
+const lcnames = names.map(x => x.toUpperCase());
+console.log(lcnames);
+console.log(discountPrices);
+console.log(names);
+console.log(prices);
+---------------------------------------------------------------------
+const items = ["Headphone", "Keyboard", "Charger"];
+const prices = [100, 55, 70];
+const cart = items.map((x,e) => ({name: x , price: prices[e]}));
+console.log(cart);
+---------------------------------------------------------------------
+const cards = [];
+//const deck = ["H", "C", "D", "S"];
+for (let suit of ["H", "C", "D", "S"]){
+  for (let value = 1; value <= 13; value++){
+    cards.push({suit, value});
+  }
+}
+//console.log(cards.filter(x => x.value === 2));
+//console.log(cards.filter(x => x.i === "Diamond"));
+//console.log(cards.filter(x => x.value > 10));
+//console.log(cards.filter(x => x.value > 10 && x.suit === "Diamond"));
+
+function cardToString (c){
+  const suits = {'H': '\u2665', 'C': '\u2663', 'D': '\u2666', 'S': '\u2660'};
+  const values = {1: "A", 11: "Q", 12: "K", 13: "J"};
+
+  for (let i =2; i <= 10; i++) values[i] = i;
+  return values [c.value] + suits[c.suit];
+}
+
+//console.log(cards.filter(c => c.value === 2).map(cardToString));
+//console.log(cards.filter(c => c.value > 10 && c.suit ==="H").map(cardToString).reverse());
+---------------------------------------------------------------------
+*/
