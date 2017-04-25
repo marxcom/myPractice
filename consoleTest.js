@@ -278,4 +278,16 @@ function cardToString (c){
 //console.log(cards.filter(c => c.value === 2).map(cardToString));
 //console.log(cards.filter(c => c.value > 10 && c.suit ==="H").map(cardToString).reverse());
 ---------------------------------------------------------------------
+const arr = [5,7,2,4];
+const sum = arr.reduce ((a,x) => a += x); //same result with or without initial 0.
+
+console.log(sum);
+---------------------------------------------------------------------
 */
+const words = ["Beachball", "Rodeo", "Angel","Aardvark", "Xylophone", "November", "Chocolate", "Papaya", "Uniform", "Joker", "Clover", "Bali"];
+
+const alphabetical = words.reduce((a, x) => {
+  if(!a[x[0]]) a[x[0]] = [];
+  a[x[0]].push(x);
+  return a; }, {});
+console.log(alphabetical);
